@@ -2,8 +2,9 @@
 <html>
 
 <head>
-    <title>WEBVR - Virtual Tour Museum Brawijaya</title>
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <title>WEBVR - Virtual Tour SMK/SMTI Pontianak</title>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/WaveF/aframe-gif-shader@master/dist/aframe-gif-shader.min.js"></script>
 </head>
 
 <body>
@@ -13,6 +14,7 @@
         <!-- Assets -->
         <a-assets>
             <img id="bg" src="./360/Foto_1.jpg">
+            <!-- Using GIF with updated shader -->
             <img id="arrow" src="./Images/arrow.gif">
         </a-assets>
 
@@ -34,19 +36,18 @@
         <a-sky src="#bg"></a-sky>
 
         <!-- Navigation Button -->
-        <a-entity id="nav-button" position="1 0 4" rotation="-90 180 16"> 
-            <a-image class="itemButton" src="#arrow" transparent="true"  
-                hoverable="color:#db4035"
-                clickable="name:Lantai 1; target_url:Foto_2.jpg"
-                scale="1.5 1.5 1.5" position="5 -2.55 -1.5" rotation="0 0 -74">
-            </a-image>
+        <a-entity id="nav-button" position="1 0 4" rotation="-90 180 16">
+            <!-- Using the updated GIF shader -->
+            <a-entity class="itemButton" geometry="primitive: plane" gif-shader="src: ./Images/arrow.gif; transparent: true" hoverable="color:#db4035"
+                clickable="name:Lantai 1; target_url:2_pintuMasuk.html" scale="1.5 1.5 1.5" position="5 -2.55 -1.5"
+                rotation="0 0 -74">
+            </a-entity>
 
-            <a-text font="kelsonsans" width="6" align="center" 
-                value="Ikuti Panah\nUntuk Melanjutkan"
+            <a-text font="kelsonsans" width="6" align="center" value="Ikuti Panah\nUntuk Melanjutkan"
                 position="5 -2.55 -0.5" rotation="11 -30 -75">
             </a-text>
         </a-entity>
-        
+
     </a-scene>
 
 </body>
