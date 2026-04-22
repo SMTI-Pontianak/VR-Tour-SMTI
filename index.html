@@ -1,55 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
-    <title>WEBVR - Virtual Tour SMK/SMTI Pontianak</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMTI Pontianak - Virtual Tour 360°</title>
+    <meta name="description"
+        content="Jelajahi SMK SMTI Pontianak secara virtual dengan teknologi 360° VR. Lihat fasilitas dan lingkungan sekolah kami.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Scripts -->
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/WaveF/aframe-gif-shader@master/dist/aframe-gif-shader.min.js"></script>
+    <script src="js/gif-shader.js"></script>
+    <script src="js/button-component.js"></script>
+    <script src="js/ui-manager.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <script src="Scripts/button-component.js"></script>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <div style="color: white; letter-spacing: 2px; font-weight: 300;">MEMUAT PENGALAMAN VR...</div>
+    </div>
 
-    <a-scene>
+    <!-- UI Overlay -->
+    <div id="ui-overlay">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">S</div>
+                <div class="room-info">
+                    <h1>SMTI VR TOUR</h1>
+                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">PINTU MASUK UTAMA</p>
+                </div>
+            </div>
+        </header>
+
+        <div id="info-panel" class="info-panel">
+            <h3>Selamat Datang</h3>
+            <p>Gunakan kursor di tengah layar untuk berinteraksi dengan objek dan berpindah antar lokasi.</p>
+        </div>
+
+        <div class="nav-controls">
+            <div class="btn-icon" title="Informasi"
+                onclick="toggleInfo('Tentang Tour', 'Selamat datang di Virtual Tour SMK SMTI Pontianak. Silakan jelajahi lingkungan sekolah kami dengan mengikuti petunjuk arah.')">
+                <i style="font-style: normal;">i</i>
+            </div>
+            <div class="btn-icon" title="Bantuan"
+                onclick="toggleInfo('Bantuan Navigasi', 'Tahan klik kiri dan gerakkan mouse untuk melihat sekeliling. Arahkan kursor ke panah dan tunggu hingga lingkaran penuh untuk berpindah tempat.')">
+                <i style="font-style: normal;">?</i>
+            </div>
+        </div>
+    </div>
+
+    <!-- A-Frame Scene -->
+    <a-scene loading-screen="enabled: false">
         <!-- Assets -->
         <a-assets>
-            <img id="bg" src="./360/Foto_1.jpg">
-            <!-- Using GIF with updated shader -->
-            <img id="arrow" src="./Images/arrow.gif">
+            <img id="bg" src="./assets/panoramas/Foto_1.jpg">
+            <img id="arrow" src="./assets/ui/arrow.gif">
         </a-assets>
 
-        <!-- Camera -->
-        <a-entity position="0 0 0" rotation="0 120 0">
-            <a-camera id="camera" look-controls wasd-controls="false" fov="80">
-                <!-- Cursor -->
+        <!-- Camera Setup -->
+        <a-entity position="0 0 0" rotation="0 30 0">
+            <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="80">
+                <!-- Reticle / Cursor -->
                 <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1"
                     raycaster="objects: .itemButton, .itemInfo; far: 50"
                     geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
-                    material="color: white; shader: flat"
+                    material="color: #FFFFFF; shader: flat; opacity: 0.8"
                     animation__fusing="property: geometry.radiusOuter; from: 0.050; to: 0.010; startEvents: fusing; easing: easeInQuad; dur: 1000"
                     animation__fusing2="property: geometry.radiusInner; from: 0.050; to: 0.005; startEvents: fusing; easing: easeInQuad; dur: 1000">
                 </a-entity>
             </a-camera>
         </a-entity>
 
-        <!-- Background -->
-        <a-sky src="#bg"></a-sky>
+        <!-- Environment -->
+        <a-sky src="#bg" rotation="0 -90 0"></a-sky>
 
-        <!-- Navigation Button -->
-        <a-entity id="nav-button" position="1 0 4" rotation="-90 180 16">
-            <!-- Using the updated GIF shader -->
-            <a-entity class="itemButton" geometry="primitive: plane" gif-shader="src: ./Images/arrow.gif; transparent: true" hoverable="color:#db4035"
-                clickable="name:Lantai 1; target_url:2_pintuMasuk.html" scale="1.5 1.5 1.5" position="5 -2.55 -1.5"
-                rotation="0 0 -74">
+        <!-- Navigation Portals -->
+        <a-entity id="navigation-group" position="-6 0 3" rotation="-90 -270 16">
+            <a-entity class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+                geometry="primitive: plane" hoverable="opacity: 0.7"
+                clickable="name: Lantai 1; target_url: 2_Portal.html" scale="2 2 2" position="5.75 -2.25 -1.5"
+                rotation="0 0 -255">
             </a-entity>
 
-            <a-text font="kelsonsans" width="6" align="center" value="Ikuti Panah\nUntuk Melanjutkan"
-                position="5 -2.55 -0.5" rotation="11 -30 -75">
+            <a-text font="kelsonsans" width="6" align="center" value="Ikuti Panah \n Untuk Melanjutkan 1"
+                position="5 -2.55 -0.5" rotation="11 -30 -75" color="#fff">
             </a-text>
         </a-entity>
 
     </a-scene>
-
 </body>
 
 </html>
