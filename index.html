@@ -60,7 +60,7 @@
     </div>
 
     <!-- A-Frame Scene -->
-    <a-scene loading-screen="enabled: false">
+    <a-scene aframe-watcher loading-screen="enabled: false">
         <!-- Assets -->
         <a-assets>
             <img id="bg" src="./assets/panoramas/Foto_1.jpg">
@@ -68,13 +68,16 @@
         </a-assets>
 
         <!-- Camera Setup -->
-        <a-entity position="0 0 0" rotation="0 30 0">
-            <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="80">
+        <a-entity id="camera-rig" rotation="-90 30 0"
+            animation__entry="property: rotation; from: -90 30 0; to: 0 30 0; dur: 3000; easing: easeInOutQuad; delay: 1500">
+            <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
+                animation__zoom="property: camera.fov; from: 170; to: 80; dur: 3000; easing: easeInOutQuad; delay: 1500">
+
                 <!-- Reticle / Cursor -->
                 <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1"
                     raycaster="objects: .itemButton, .itemInfo; far: 50"
                     geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
-                    material="color: #FFFFFF; shader: flat; opacity: 0.8"
+                    material="color: #FFFFFF; shader: flat; opacity: 1"
                     animation__fusing="property: geometry.radiusOuter; from: 0.050; to: 0.010; startEvents: fusing; easing: easeInQuad; dur: 1000"
                     animation__fusing2="property: geometry.radiusInner; from: 0.050; to: 0.005; startEvents: fusing; easing: easeInQuad; dur: 1000">
                 </a-entity>
@@ -85,15 +88,15 @@
         <a-sky src="#bg" rotation="0 -90 0"></a-sky>
 
         <!-- Navigation Portals -->
-        <a-entity id="navigation-group" position="-6 0 3" rotation="-90 -270 16">
+        <a-entity id="navigation-group" position="-7.35 0.4 2.62" rotation="-90 -270 16" scale="2 2 2">
             <a-entity class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7"
                 clickable="name: Lantai 1; target_url: 2_Portal.html" scale="2 2 2" position="5.75 -2.25 -1.5"
-                rotation="0 0 -255">
+                rotation="0 -7.4 -255">
             </a-entity>
 
-            <a-text font="kelsonsans" width="6" align="center" value="Ikuti Panah \n Untuk Melanjutkan 1"
-                position="5 -2.55 -0.5" rotation="11 -30 -75" color="#fff">
+            <a-text font="kelsonsans" width="6" align="center" value="Ikuti Panah \n Untuk Melanjutkan"
+                position="2.98 -3.06 -1.03" rotation="10.53 -27.9 -76.93" color="#fff">
             </a-text>
         </a-entity>
 

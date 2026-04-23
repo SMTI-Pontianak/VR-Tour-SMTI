@@ -16,13 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle back button if exists
-    const backBtn = document.getElementById('back-btn');
-    if (backBtn) {
-        backBtn.addEventListener('click', () => {
-            window.history.back();
-        });
-    }
 
     // Toggle info panel
     window.toggleInfo = (title, content) => {

@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal - SMTI Virtual Tour</title>
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    
+
     <!-- Scripts -->
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
     <script src="js/gif-shader.js"></script>
     <script src="js/button-component.js"></script>
     <script src="js/ui-manager.js"></script>
-    
+
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -34,7 +34,7 @@
             <div class="logo-container">
                 <div class="logo-icon">S</div>
                 <div class="room-info">
-                    <h1>PORTAL LANTAI 1</h1>
+                    <h1>PORTAL</h1>
                     <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">AREA PENGHUBUNG</p>
                 </div>
             </div>
@@ -42,21 +42,19 @@
 
         <div id="info-panel" class="info-panel">
             <h3>Portal Utama</h3>
-            <p>Area ini menghubungkan pintu masuk dengan ruangan-ruangan di lantai 1.</p>
+            <p>Area ini menghubungkan pintu masuk dengan area SMK/SMTI Pontianak.</p>
         </div>
 
         <div class="nav-controls">
-            <div id="back-btn" class="btn-icon" title="Kembali">
-                <i style="font-style: normal;">←</i>
-            </div>
-            <div class="btn-icon" title="Informasi" onclick="toggleInfo('Informasi Lokasi', 'Anda berada di area portal. Lanjutkan ke area berikutnya dengan mengikuti panah di lantai.')">
+            <div class="btn-icon" title="Informasi"
+                onclick="toggleInfo('Informasi Lokasi', 'Anda berada di area portal. Lanjutkan ke area berikutnya dengan mengikuti panah di lantai.')">
                 <i style="font-style: normal;">i</i>
             </div>
         </div>
     </div>
 
     <!-- A-Frame Scene -->
-    <a-scene loading-screen="enabled: false">
+    <a-scene aframe-watcher loading-screen="enabled: false">
         <!-- Assets -->
         <a-assets>
             <img id="bg" src="./assets/panoramas/Foto_2.jpg">
@@ -64,12 +62,14 @@
         </a-assets>
 
         <!-- Camera Setup -->
-        <a-entity position="0 0 0" rotation="0 120 0">
+        <a-entity position="0 0 0" rotation="0 -60 0">
             <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="80">
+
+                <!-- Reticle / Cursor -->
                 <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1"
                     raycaster="objects: .itemButton, .itemInfo; far: 50"
                     geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
-                    material="color: #00bcd4; shader: flat; opacity: 0.8"
+                    material="color: #FFFFFF; shader: flat; opacity: 0.8"
                     animation__fusing="property: geometry.radiusOuter; from: 0.050; to: 0.010; startEvents: fusing; easing: easeInQuad; dur: 1000"
                     animation__fusing2="property: geometry.radiusInner; from: 0.050; to: 0.005; startEvents: fusing; easing: easeInQuad; dur: 1000">
                 </a-entity>
@@ -81,22 +81,30 @@
 
         <!-- Navigation Portals -->
         <a-entity id="navigation-group" position="1 0 4" rotation="-90 180 16">
-            <a-entity class="itemButton" 
-                gif-shader="src: ./assets/ui/arrow.gif; transparent: true" 
-                geometry="primitive: plane"
-                hoverable="opacity: 0.7"
-                clickable="name: Lantai 1; target_url: 2_pintuMasuk.html" 
-                scale="2 2 2" 
-                position="5.75 -2.25 -1.5"
+            <a-entity class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+                geometry="primitive: plane" hoverable="opacity: 0.7"
+                clickable="name: halaman_Sekolah; target_url: 3_Path1.html" scale="2 2 2" position="5.75 -2.25 -1.5"
                 rotation="0 0 -255">
             </a-entity>
 
-            <a-text font="kelsonsans" width="6" align="center" value="Masuk Sekolah"
-                position="5 -2.55 -0.5" rotation="11 -30 -75" color="#fff">
+            <a-text font="kelsonsans" width="6" align="center" value="Masuk Sekolah" position="5 -2.55 -0.5"
+                rotation="11 -30 -75" color="#fff">
+            </a-text>
+        </a-entity>
+
+        <!-- Back Navigation -->
+        <a-entity id="back-group" position="-10 -1 -1" rotation="-90 -270 16">
+            <a-entity class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: kembali; target_url: index.html"
+                scale="2 2 2" position="0 0 0" rotation="0 0 180">
+            </a-entity>
+
+            <a-text font="kelsonsans" width="6" align="center" value="Kembali" position="0 -1.5 0.5" rotation="90 0 0"
+                color="#fff">
             </a-text>
         </a-entity>
 
     </a-scene>
 </body>
 
-</html>
+</html>
