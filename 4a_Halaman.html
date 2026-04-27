@@ -57,12 +57,12 @@
     <a-scene aframe-watcher loading-screen="enabled: false">
         <!-- Assets -->
         <a-assets>
-            <img id="bg" src="./assets/panoramas/Foto_3.jpg">
+            <img id="bg" src="./assets/panoramas/Foto_4a.jpg">
             <img id="arrow" src="./assets/ui/arrow.gif">
         </a-assets>
 
         <!-- Camera Setup -->
-        <a-entity position="0 0 0" rotation="0 -60 0">
+        <a-entity position="0 0 0" rotation="0 35 0">
             <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="80">
 
                 <!-- Reticle / Cursor -->
@@ -79,41 +79,15 @@
         <!-- Environment -->
         <a-sky src="#bg" rotation="0 180 0"></a-sky>
 
-        <!-- Navigation Portals -->
-
-        <a-entity id="navigation-group" position="-3.32 0.53 -9.97" rotation="-91 79.2 -25.31">
-            <a-entity class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
-                geometry="primitive: plane" hoverable="opacity: 0.7"
-                clickable="name: halaman_Sekolah1; target_url: 4a_Halaman.html" scale="2 2 2" position="5.75 -2.25 -1.5"
-                rotation="0 0 -255">
-            </a-entity>
-
-            <a-text font="kelsonsans" width="6" align="center" value="Halaman Sekolah" position="5 -2.55 -0.5"
-                rotation="11 -30 -75" color="#fff">
-            </a-text>
-        </a-entity>
-
-        <a-entity id="navigation-group2" position="-6.88 1 0.13" rotation="-92.66 83.89 15.46">
-            <a-entity class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
-                geometry="primitive: plane" hoverable="opacity: 0.7"
-                clickable="name: halaman_Sekolah2; target_url: 4b_Halaman.html" scale="2 2 2" position="5.75 -2.25 -1.5"
-                rotation="0 0 -255">
-            </a-entity>
-
-            <a-text font="kelsonsans" width="6" align="center" value="Halaman Sekolah" position="5 -2.55 -0.5"
-                rotation="11 -30 -75" color="#fff">
-            </a-text>
-        </a-entity>
-
         <!-- Back Navigation -->
-        <a-entity id="back-group" position="-7.84 -1.24 3.76" rotation="-89 -255 7.54">
+        <a-entity id="back-group" position="-3.84 -1.24 9.85" rotation="-89 -255 71.04">
             <a-entity class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7"
-                clickable="name: kembali; target_url: 2_Portal.html" scale="2 2 2" position="0 0 0" rotation="0 0 180">
+                clickable="name: kembali; target_url: 3_Halaman.html" scale="2 2 2" position="0 0 0" rotation="0 0 180">
             </a-entity>
 
-            <a-text font="kelsonsans" width="6" align="center" value="Kembali" position="0 -2.26 0.5" rotation="90 0 0"
-                color="#fff">
+            <a-text font="kelsonsans" width="6" align="center" value="Kembali" position="-0.49 -2.84 0.5"
+                rotation="90 0 0" color="#fff">
             </a-text>
         </a-entity>
 
