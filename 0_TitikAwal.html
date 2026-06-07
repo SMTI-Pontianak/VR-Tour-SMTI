@@ -29,7 +29,37 @@
         <div style="color: white; letter-spacing: 2px; font-weight: 300;">MEMUAT PENGALAMAN VR...</div>
     </div>
 
-
+    <!-- Welcome Splash Screen -->
+    <div id="welcome-screen">
+        <div class="welcome-card">
+            <h2>Selamat Datang di</h2>
+            <h1>VIRTUAL TOUR</h1>
+            <h3>SMK SMTI PONTIANAK</h3>
+            
+            <div class="tutorial-container">
+                <div class="tutorial-column">
+                    <h4>💻 LAPTOP / PC</h4>
+                    <ul>
+                        <li>Tahan Klik Kiri & Geser Mouse untuk melihat sekeliling.</li>
+                        <li>Gunakan Scroll Mouse untuk memperbesar / memperkecil pandangan.</li>
+                        <li>Arahkan kursor bulat tengah ke panah navigasi untuk berpindah tempat.</li>
+                        <li>Klik tombol di pojok kanan atas untuk melihat informasi area & bantuan.</li>
+                    </ul>
+                </div>
+                <div class="tutorial-column">
+                    <h4>📱 HP / TABLET</h4>
+                    <ul>
+                        <li>Geser layar untuk melihat sekeliling.</li>
+                        <li>Arahkan kursor bulat tengah ke panah navigasi untuk berpindah tempat.</li>
+                        <li>Ketuk peta di pojok kiri bawah untuk melihat denah sekolah.</li>
+                        <li>Ketuk tombol di pojok kanan atas untuk melihat informasi area & bantuan.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <button id="start-tour-btn" class="start-btn">Mulai Jelajah</button>
+        </div>
+    </div>
 
     <!-- UI Overlay -->
     <div id="ui-overlay">
@@ -57,7 +87,7 @@
                     
                     'Tentang Tour', 
                     
-                    'Anda sekarang berada di gerbang depan SMK/SMTI Pontianak. Gerbang ini merupakan pintu utama masuk bagi siswa, staf, dan pengunjung.'
+                    'Selamat datang di Virtual Tour SMK/SMTI Pontianak. Silakan jelajahi lingkungan virtual dengan mengikuti petunjuk arah.'
                     
                     )">
                 <i style="font-style: normal;">i</i>
@@ -85,13 +115,13 @@
 
         <!-- Assets -->
         <a-assets>
-            <img id="bg" src="./assets/panoramas/2_TitikDua.JPG">
+            <img id="bg" src="./assets/panoramas/1_TitikSatu.JPG">
             <!-- Ganti ... dengan nama file gambar yang ingin digunakan -->
             <img id="arrow" src="./assets/ui/arrow.gif">
         </a-assets>
 
         <!-- Camera Setup -->
-        <a-entity id="camera-rig_hmln1" rotation="0 -179.45038143497385 0">
+        <a-entity id="camera-rig_hmln0" rotation="0 171.72519148322496 0">
 
             <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
                 animation__zoom="property: camera.fov; from: 170; to: 80; dur: 3000; easing: easeInOutQuad; delay: 1500">
@@ -111,28 +141,14 @@
         <a-sky src="#bg" rotation="0 0 0"></a-sky>
 
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi1_HLMN1" position="11.28568 -0.9492 18.15619" rotation="-89.99963750135457 -156.40258116804134 0" scale="2 2 2">
+        <a-entity id="tombol-navigasi1_HLMN0" position="8.14112 -0.95923 16.1919" rotation="-89.99963750135457 -167.08022263809937 0" scale="2 2 2">
 
-            <a-entity id="panah-navigasi1_HLMN1" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+            <a-entity id="panah-navigasi1_HLMN0" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 1a_TitikSatu.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+                target_url: 1_TitikSatu.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
             </a-entity>
 
-            <a-text id="text-navigasi1_HLMN1" font="kelsonsans" width="6" align="center"
-                value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
-                color="#fff">
-            </a-text>
-        </a-entity>
-
-                <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi2_HLMN1" position="-23.04029 -0.9492 14.48379" rotation="-87.55081588496544 114.43342267470854 -3.658908479705437" scale="2 2 2">
-
-            <a-entity id="panah-navigasi1_HLMN1" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
-                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 0_TitikAwal.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
-            </a-entity>
-
-            <a-text id="text-navigasi1_HLMN1" font="kelsonsans" width="6" align="center"
+            <a-text id="text-navigasi1_HLMN0" font="kelsonsans" width="6" align="center"
                 value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
                 color="#fff">
             </a-text>

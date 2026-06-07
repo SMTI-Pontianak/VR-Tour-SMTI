@@ -88,7 +88,7 @@
 <!--====================================================== Section 3 ====================================================-->
         <!-- Assets -->
         <a-assets>
-            <img id="bg" src="./assets/panoramas/5b2_TitikLima.JPG">
+            <img id="bg" src="./assets/panoramas/5c1_TitikLima.JPG">
             <!-- Ganti ... dengan nama file gambar yang ingin digunakan -->
             <img id="arrow" src="./assets/ui/arrow.gif">
         </a-assets>
@@ -96,7 +96,7 @@
 
 <!--====================================================== Section 4 ====================================================-->
         <!-- Camera Setup -->
-        <a-entity id="camera-rig_hlmn4" rotation="0 139.26827830465405 0">
+        <a-entity id="camera-rig_hlmn5" rotation="0 -27.954610824432866 0">
 <!--_____________________________________________________________________________________________________________________-->
 
             <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
@@ -118,14 +118,14 @@
 
 <!--====================================================== Section 5 ====================================================-->
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi1_HLMN4" position="9.33102 -0.97214 -13.28152" rotation="-86.09493012753802 54.59485646683562 -103.74031134418199" scale="2 2 2">
+        <a-entity id="tombol-navigasi1_HLMN5" position="-15.5858 -0.3119 -6.63659" rotation="-89.99963750135457 55.913232353431646 0" scale="2 2 2">
 
             <a-entity id="panah-navigasi1_HLMN4" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 5_TitikLima.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+                target_url: 4_TitikEmpat.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
             </a-entity>
 
-            <a-text id="text-navigasi1_HLMN4" font="kelsonsans" width="6" align="center"
+            <a-text id="text-navigasi1_HLMN5" font="kelsonsans" width="6" align="center"
                 value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
                 color="#fff">
             </a-text>
@@ -137,10 +137,37 @@
         
         <!--- Paste Snippet Code Tombol Dibawah ini -->
 
+                <!-- Tombol Navigasi -->
+        <a-entity id="tombol-navigasi2_HLMN5" position="-1.89791 0.31171 18.3818" rotation="-89.99963750135457 174.85525991802464 0" scale="2 2 2">
+
+            <a-entity id="panah-navigasi1_HLMN5" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 2_TitikDua.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+            </a-entity>
+
+            <a-text id="text-navigasi1_HLMN5" font="kelsonsans" width="6" align="center"
+                value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
+                color="#fff">
+            </a-text>
+        </a-entity>
+
+                <!-- Tombol Navigasi -->
+        <a-entity id="tombol-navigasi3_HLMN5" position="4.05992 0.31171 -25.84558" rotation="-89.99963750135457 -30.155914673325487 0" scale="2 2 2">
+
+            <a-entity id="panah-navigasi1_HLMN5" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 2_TitikDua.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+            </a-entity>
+
+            <a-text id="text-navigasi1_HLMN5" font="kelsonsans" width="6" align="center"
+                value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
+                color="#fff">
+            </a-text>
+        </a-entity>
 
         <!--- Paste Snippet Code Text Dibawah ini -->
 
-                <a-entity id="text-deskripsi1_HLMN4" position="-1.45874 7.73871 -16.13182" rotation="-6.22862419086718 -0.6480152662929611 33.336403394096685" scale="2 2 2">
+                <a-entity id="text-deskripsi1_HLMN5" position="5.27159 13.37046 -10.52955" rotation="-6.172474326944359 -81.65106946850335 34.34366319793668" scale="2 2 2">
 
             <!-- Dark background plane behind the text -->
             <a-plane
@@ -152,14 +179,14 @@
                 opacity="0.75">
             </a-plane>
 
-            <a-text id="komponen-text1_HLMN4" font="kelsonsans" width="6" align="center"
+            <a-text id="komponen-text1_HLMN5" font="kelsonsans" width="6" align="center"
                 value="Musholla" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
                 color="#fff">
             </a-text>
 
         </a-entity>
 
-        <a-entity id="text-deskripsi2_HLMN4" position="-12.28318 12.26783 -0.00022" rotation="-24.052195281796827 52.68060447330354 29.19735628207162" scale="2 2 2">
+        <a-entity id="text-deskripsi2_HLMN5" position="-7.00659 10.46315 -22.82869" rotation="-24.052195281796827 -48.28659114244525 29.19735628207162" scale="2 2 2">
 
             <!-- Dark background plane behind the text -->
             <a-plane
@@ -171,14 +198,14 @@
                 opacity="0.75">
             </a-plane>
 
-            <a-text id="komponen-text1_HLMN4" font="kelsonsans" width="6" align="center"
+            <a-text id="komponen-text1_HLMN5" font="kelsonsans" width="6" align="center"
                 value="Gedung D" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
                 color="#fff">
             </a-text>
 
         </a-entity>
 
-        <a-entity id="text-deskripsi3_HLMN4" position="20.12154 10.16258 -5.77317" rotation="-15.028682966281492 -126.42084566443562 32.5634833284652" scale="2 2 2">
+        <a-entity id="text-deskripsi3_HLMN5" position="-13.98834 13.63831 7.347" rotation="-15.028682966281492 129.1624487141366 32.5634833284652" scale="2 2 2">
 
             <!-- Dark background plane behind the text -->
             <a-plane
@@ -190,18 +217,18 @@
                 opacity="0.75">
             </a-plane>
 
-            <a-text id="komponen-text1_HLMN4" font="kelsonsans" width="6" align="center"
+            <a-text id="komponen-text1_HLMN5" font="kelsonsans" width="6" align="center"
                 value="Gedung L" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
                 color="#fff">
             </a-text>
 
         </a-entity>
 
-        <a-entity id="text-deskripsi4_HLMN4" position="-3.29285 9.97896 15.45514" rotation="-15.625132031012681 147.88728241680704 34.434763487362474" scale="2 2 2">
+        <a-entity id="text-deskripsi4_HLMN5" position="-21.41666 9.799 -19.34586" rotation="-15.625132031012681 48.91054218134273 34.434763487362474" scale="2 2 2">
 
             <!-- Dark background plane behind the text -->
             <a-plane
-                id="text-deskripsi4_HLMN4_plane" scale="1.1409 1 1"
+                id="text-deskripsi4_HLMN5_plane" scale="1.1409 1 1"
                 position="4.08 -1.49 -1.49"
                 rotation="21.21 -20.45 -35.56"
                 width="2.8"
@@ -210,7 +237,7 @@
                 opacity="0.75">
             </a-plane>
 
-            <a-text id="komponen-text1_HLMN4" font="kelsonsans" width="6" align="center"
+            <a-text id="komponen-text1_HLMN5" font="kelsonsans" width="6" align="center"
                 value="Gedung Layanan Publik" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
                 color="#fff">
             </a-text>

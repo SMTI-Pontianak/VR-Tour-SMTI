@@ -131,14 +131,14 @@ header {
 }
 
 .info-panel h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 19px;
+    margin-bottom: 10px;
     color: var(--primary-color);
 }
 
 .info-panel p {
-    font-size: 17px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.5;
     color: #eee;
 }
 
@@ -324,12 +324,13 @@ header {
     }
 
     .info-panel h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
+        font-size: 15px;
+        margin-bottom: 6px;
     }
 
     .info-panel p {
-        font-size: 14px;
+        font-size: 12px;
+        line-height: 1.45;
     }
 
     /* Minimap */
