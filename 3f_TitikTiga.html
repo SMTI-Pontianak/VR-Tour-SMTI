@@ -37,8 +37,8 @@
 
 <!--====================================================== Section 1 ====================================================-->
                 <div class="room-info">
-                    <h1>Halaman Sekolah</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
-                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Perempatan antara Jurusan TP, TOI, Gedung Layanan Publik, dan Usaha Kesehatan Sekolah (UKS)</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
+                    <h1>Area Parkir Mobil</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
+                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Area Parkir Khusus Pegawai</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
                 </div>
 <!--_____________________________________________________________________________________________________________________-->
 
@@ -56,7 +56,7 @@
                     
                     'Tentang Tour', 
                     
-                    'Anda sedang berada di area pedestrian dimana staf, guru, siswa, dan pengunjung biasa melintas untuk menuju berbagai fasilitas sekolah. \n Pada area ini, Anda dapat melihat jalan masuk ke jurusan Teknik Otomasi Industri (TOI) dan Usaha Kesehatan Sekolah (UKS). \n Di seberang jalan, terdapat Gedung Layanan Publik yang menyediakan berbagai layanan administrasi untuk siswa dan staf sekolah.' 
+                    'Pada area ini, Anda dapat melihat area parkir mobil yang digunakan oleh pegawai sekolah.'
                     
                     )">
                 <i style="font-style: normal;">i</i>
@@ -88,7 +88,7 @@
 <!--====================================================== Section 3 ====================================================-->
         <!-- Assets -->
         <a-assets>
-            <img id="bg" src="./assets/panoramas/3b_TitikTiga.JPG">
+            <img id="bg" src="./assets/panoramas/3f_TitikTiga.JPG">
             <!-- Ganti ... dengan nama file gambar yang ingin digunakan -->
             <img id="arrow" src="./assets/ui/arrow.gif">
         </a-assets>
@@ -96,7 +96,7 @@
 
 <!--====================================================== Section 4 ====================================================-->
         <!-- Camera Setup -->
-        <a-entity id="camera-rig_hlmn3b" rotation="0 -62.08914442714679 0">
+        <a-entity id="camera-rig_hlmn3f" rotation="0.11229972784564135 158.76316728398032 0.9224620501606254">
 <!--_____________________________________________________________________________________________________________________-->
 
             <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
@@ -118,11 +118,11 @@
 
 <!--====================================================== Section 5 ====================================================-->
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi1_HLMN3b" position="12.52797 -0.97214 -16.33398" rotation="-86.09493012753802 69.38289715916217 -103.74031134418199" scale="2 2 2">
+        <a-entity id="tombol-navigasi1_HLMN3f" position="0.86229 -0.97214 26.35019" rotation="-86.09493012753802 -73.2835938284128 -103.74031134418199" scale="2 2 2">
 
             <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 3c_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+                target_url: 1a_TitikSatu.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
             </a-entity>
 
             <a-text id="text-navigasi1_HLMN3a" font="kelsonsans" width="6" align="center"
@@ -138,20 +138,7 @@
         <!--- Paste Snippet Code Tombol Dibawah ini -->
 
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi2_HLMN3b" position="-11.66421 -0.97214 16.81674" rotation="-86.09493012753802 -111.41107030539345 -103.74031134418199" scale="2 2 2">
-
-            <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
-                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 3_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
-            </a-entity>
-
-            <a-text id="text-navigasi1_HLMN4" font="kelsonsans" width="6" align="center"
-                value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
-                color="#fff">
-            </a-text>
-        </a-entity>
-
-        <a-entity id="tombol-navigasi3_HLMN3b" position="-24.10137 -2.22445 -22.99901" rotation="-86.09493012753802 156.82828880982353 -103.74031134418199" scale="2 2 2">
+        <a-entity id="tombol-navigasi2_HLMN3f" position="1.18313 -0.97214 -22.54893" rotation="-87.51242771269168 115.27051401339466 -116.11619971900775" scale="2 2 2">
 
             <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
@@ -165,70 +152,6 @@
         </a-entity>
 
         <!--- Paste Snippet Code Text Dibawah ini -->
-
-        <!-- Gedung G -->
-
-        <a-entity id="text-deskripsi1_HLMN3b" position="12.28536 9.42099 7.82407" rotation="-26.18302532188836 -146.27326030792352 30.9145107940787" scale="2 2 2">
-
-            <!-- Dark background plane behind the text -->
-            <a-plane
-                position="4.08 -1.49 -1.49"
-                rotation="21.21 -20.45 -35.56"
-                width="2.8"
-                height="0.5"
-                color="#111111"
-                opacity="0.75">
-            </a-plane>
-
-            <a-text id="komponen-text1_HLMN2" font="kelsonsans" width="6" align="center"
-                value="Gedung G" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
-                color="#fff">
-            </a-text>
-
-        </a-entity>
-
-
-        <!-- TOI -->
- 
-        <a-entity id="text-deskripsi2_HLMN3b" position="-10.58718 6.01598 -24.33492" rotation="-29.696402521630567 -50.32803976649638 29.78521097987585" scale="2 2 2">
-
-            <!-- Dark background plane behind the text -->
-            <a-plane
-                position="4.08 -1.49 -1.49"
-                rotation="21.21 -20.45 -35.56"
-                width="2.8"
-                height="0.5"
-                color="#111111"
-                opacity="0.75">
-            </a-plane>
-
-            <a-text id="komponen-text3_HLMN2" font="kelsonsans" width="6" align="center"
-                value="Jurusan TOI" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
-                color="#fff">
-            </a-text>
-
-        </a-entity>
-
-        <!-- UKS -->
-
-        <a-entity id="text-deskripsi4_HLMN3b" position="-12.09681 6.03802 -3.51977" rotation="-26.18302532188836 120.12919611610404 30.9145107940787" scale="2 2 2">
-
-            <!-- Dark background plane behind the text -->
-            <a-plane
-                position="4.08 -1.49 -1.49"
-                rotation="21.21 -20.45 -35.56"
-                width="2.8"
-                height="0.5"
-                color="#111111"
-                opacity="0.75">
-            </a-plane>
-
-            <a-text id="komponen-text1_HLMN2" font="kelsonsans" width="6" align="center"
-                value="UKS" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
-                color="#fff">
-            </a-text>
-
-        </a-entity>
 
 <!--_____________________________________________________________________________________________________________________-->
 
