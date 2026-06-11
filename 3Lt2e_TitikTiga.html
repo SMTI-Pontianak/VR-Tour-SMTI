@@ -38,7 +38,7 @@
 <!--====================================================== Section 1 ====================================================-->
                 <div class="room-info">
                     <h1>Gedung L</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
-                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Area Depan Pintu Masuk Aula</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
+                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Lorong Gedung L Lantai 2</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
                 </div>
 <!--_____________________________________________________________________________________________________________________-->
 
@@ -56,7 +56,7 @@
                     
                     'Tentang Tour', 
                     
-                    'Anda sedang berada di area depan pintu masuk Aula Gedung L. Area ini merupakan jalur utama untuk mengakses ruang pembelajaran di Lantai 2 serta lokasi Aula Sekolah.'
+                    'Anda sedang berada di area depan pintu masuk toilet siswa dan siswi di lantai 2 Gedung L.'
                     
                     )">
                 <i style="font-style: normal;">i</i>
@@ -88,7 +88,7 @@
 <!--====================================================== Section 3 ====================================================-->
         <!-- Assets -->
         <a-assets>
-            <img id="bg" src="./assets/panoramas/3Lt2d_TitikTiga.JPG">
+            <img id="bg" src="./assets/panoramas/3Lt2e_TitikTiga.JPG">
             <!-- Ganti ... dengan nama file gambar yang ingin digunakan -->
             <img id="arrow" src="./assets/ui/arrow.gif">
             <img id="door_enter" src="./assets/ui/door_enter.png">
@@ -97,7 +97,7 @@
 
 <!--====================================================== Section 4 ====================================================-->
         <!-- Camera Setup -->
-        <a-entity id="camera-rig_hlmn3lt2d" rotation="0.0011459155902616466 -91.83711315033914 -1.5636018229120165">
+        <a-entity id="camera-rig_hlmn3lt2e" rotation="0.0011459155902616466 -91.61938918818942 -1.5636018229120165">
 <!--_____________________________________________________________________________________________________________________-->
 
             <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
@@ -119,38 +119,12 @@
 
 <!--====================================================== Section 5 ====================================================-->
 
-<!-- Tombol Masuk (Door Icon) -->
-        <a-entity id="tombol-masuk-3Lt2d" position="7.76265 -1.28403 15.133" rotation="-30.160498335686533 -179.4016800223877 30.0613766371289" scale="2 2 2">
-            <a-entity id="ikon-masuk-3k" class="itemButton" 
-                geometry="primitive: plane" 
-                material="src: #door_enter; transparent: true; shader: flat" 
-                hoverable="opacity: 0.7" 
-                clickable="name: Masuk_Aula; target_url: InRoom_3Lt2d.html" 
-                scale="1.5 1.5 1.5" 
-                position="4.08 -1.49 -1.49" 
-                rotation="21.21 -20.45 -35.56">
-            </a-entity>
-            <a-text id="text-masuk-3k" font="kelsonsans" width="6" align="center"
-                value="Masuk Ruang Aula" 
-                position="4.45776 -0.81974 -0.68884" 
-                rotation="21.21 -20.45 -35.56"
-                color="#fff">
-            </a-text>
-        </a-entity>
-
-<!--_____________________________________________________________________________________________________________________-->
-
-
-<!--====================================================== Section 6 ====================================================-->
-        
-        <!--- Paste Snippet Code Tombol Dibawah ini -->
-
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi2_HLMN3lt2d" position="-9.73553 -3.64628 -16.72654" rotation="-87.51242771269168 139.86071666481934 -116.11619971900775" scale="2 2 2">
+        <a-entity id="tombol-navigasi1_HLMN3lt2e" position="14.02733 -3.64628 -8.50775" rotation="-87.37778263083594 45.774744168591724 -112.74720788363852" scale="2 2 2">
 
             <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 3Lt2c_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+                target_url: 3Lt2g_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
             </a-entity>
 
             <a-text id="text-navigasi1_HLMN4" font="kelsonsans" width="6" align="center"
@@ -159,6 +133,42 @@
             </a-text>
         </a-entity>
 
+
+        
+<!--_____________________________________________________________________________________________________________________-->
+
+
+<!--====================================================== Section 6 ====================================================-->
+        
+        <!--- Paste Snippet Code Tombol Dibawah ini -->
+
+        <!-- Tombol Navigasi -->
+        <a-entity id="tombol-navigasi2_HLMN3lt2e" position="-8.58882 -3.64628 -15.42215" rotation="-87.51242771269168 139.86071666481934 -116.11619971900775" scale="2 2 2">
+
+            <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 3Lt2f_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+            </a-entity>
+
+            <a-text id="text-navigasi1_HLMN4" font="kelsonsans" width="6" align="center"
+                value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
+                color="#fff">
+            </a-text>
+        </a-entity>
+
+        <!-- Tombol Navigasi -->
+        <a-entity id="tombol-navigasi13_HLMN3lt2e" position="-16.81474 -4.2553 8.89758" rotation="-87.51242771269168 -131.75565569489873 -116.11619971900775" scale="2 2 2">
+
+            <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 3Lt2g_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+            </a-entity>
+
+            <a-text id="text-navigasi1_HLMN4" font="kelsonsans" width="6" align="center"
+                value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
+                color="#fff">
+            </a-text>
+        </a-entity>
 
         <!--- Paste Snippet Code Text Dibawah ini -->
 
