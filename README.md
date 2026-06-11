@@ -23,7 +23,7 @@ Preview Aplikasi Web VR Tour
 6. [Aset & Sumber Daya](#-aset--sumber-daya)
 7. [ID Harus Unik! (Penting Banget!!)](#-id-harus-unik-penting-banget)
 8. [Fitur Yang Masih Perlu Dibuat](#-fitur-yang-masih-perlu-dibuat)
-9. [Pesan Penutup ❤️](#-pesan-penutup)
+9. [Pesan Penutup](#-pesan-penutup)
 
 ---
 
