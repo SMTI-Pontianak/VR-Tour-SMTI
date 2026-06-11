@@ -37,8 +37,8 @@
 
 <!--====================================================== Section 1 ====================================================-->
                 <div class="room-info">
-                    <h1>Usaha Kesehatan Sekolah (UKS)</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
-                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Area Luar Ruang UKS Sekolah</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
+                    <h1>Area Depan Layanan Publik</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
+                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Area Luar Layanan Publik</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
                 </div>
 <!--_____________________________________________________________________________________________________________________-->
 
@@ -56,7 +56,7 @@
                     
                     'Tentang Tour', 
                     
-                    'Anda sedang berada di area di depan ruang UKS, tempat siswa mendapatkan pelayanan kesehatan jika terdapat permasalah kesehatan atau kecelakaan kerja saat praktikum.'
+                    'Anda sedang berada di area di depan Layanan Publik. Area ini seringkali digunakan untuk panggung pembina upacara dan tempat pegawai, guru, dan siswa berlalulalang untuk masuk dan keluar dari Layanan Publik'
                     
                     )">
                 <i style="font-style: normal;">i</i>
@@ -76,7 +76,7 @@
             <div class="minimap-tutor">Ketuk peta untuk memperbesar</div>
             <div class="minimap-content">
                 <!-- Ganti src dengan referensi gambar peta yang sesuai dari folder assets/map -->
-                <img src="./assets/map/Perpus dan UKS.png" alt="Minimap" onclick="maximizeMap(event)">
+                <img src="./assets/map/LayananPublik.png" alt="Minimap" onclick="maximizeMap(event)">
             </div>
         </div>
 <!--_____________________________________________________________________________________________________________________-->
@@ -88,7 +88,7 @@
 <!--====================================================== Section 3 ====================================================-->
         <!-- Assets -->
         <a-assets>
-            <img id="bg" src="./assets/panoramas/3k_TitikTiga.JPG">
+            <img id="bg" src="./assets/panoramas/3l_TitikTiga.JPG">
             <!-- Ganti ... dengan nama file gambar yang ingin digunakan -->
             <img id="arrow" src="./assets/ui/arrow.gif">
             <img id="door_enter" src="./assets/ui/door_enter.png">
@@ -97,7 +97,7 @@
 
 <!--====================================================== Section 4 ====================================================-->
         <!-- Camera Setup -->
-        <a-entity id="camera-rig_hlmn3k" rotation="0.0011459155902616466 108.55201090769064 0.34606650825901725">
+        <a-entity id="camera-rig_hlmn3l" rotation="0.0011459155902616466 144.9588951258934 0.34606650825901725">
 <!--_____________________________________________________________________________________________________________________-->
 
             <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
@@ -119,7 +119,7 @@
 
 <!--====================================================== Section 5 ====================================================-->
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi1_HLMN3k" position="-11.72731 -5.77399 16.41141" rotation="-86.96926372290766 -115.97697097479097 -120.58584347882332" scale="2 2 2">
+        <a-entity id="tombol-navigasi1_HLMN3l" position="-3.23965 -3.73393 20.95167" rotation="-86.96926372290766 -69.56796252698943 -120.58584347882332" scale="2 2 2">
 
             <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
@@ -139,7 +139,7 @@
         <!--- Paste Snippet Code Tombol Dibawah ini -->
 
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi2_HLMN3k" position="16.49138 -2.73648 -6.68377" rotation="-87.51242771269168 59.54750364794645 -116.11619971900775" scale="2 2 2">
+        <a-entity id="tombol-navigasi2_HLMN3l" position="3.03255 -2.73648 -17.07486" rotation="-87.51242771269168 101.4989004496302 -116.11619971900775" scale="2 2 2">
 
             <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
@@ -153,18 +153,18 @@
         </a-entity>
 
         <!-- Tombol Masuk (Door Icon) -->
-        <a-entity id="tombol-masuk-3k" position="-2.54047 -2.81127 15.42161" rotation="-30.160498335686533 -169.09245041459883 30.0613766371289" scale="2 2 2">
-            <a-entity id="ikon-masuk-3k" class="itemButton" 
+        <a-entity id="tombol-masuk-3l" position="18.16776 4.1732 3.10494" rotation="-30.160498335686533 -120.95425534109245 30.0613766371289" scale="2 2 2">
+            <a-entity id="ikon-masuk-3l" class="itemButton" 
                 geometry="primitive: plane" 
                 material="src: #door_enter; transparent: true; shader: flat" 
                 hoverable="opacity: 0.7" 
-                clickable="name: Masuk_UKS; target_url: InRoom_3k.html" 
+                clickable="name: Masuk_LP; target_url: InRoom_3l.html" 
                 scale="1.5 1.5 1.5" 
                 position="4.08 -1.49 -1.49" 
                 rotation="21.21 -20.45 -35.56">
             </a-entity>
-            <a-text id="text-masuk-3k" font="kelsonsans" width="6" align="center"
-                value="Masuk Ruang UKS" 
+            <a-text id="text-masuk-3l" font="kelsonsans" width="6" align="center"
+                value="Masuk Ke Layanan Publik" 
                 position="4.45776 -0.81974 -0.68884" 
                 rotation="21.21 -20.45 -35.56"
                 color="#fff">
@@ -174,7 +174,7 @@
 
         <!--- Paste Snippet Code Text Dibawah ini -->
 
-        <a-entity id="text-deskripsi2_HLMN3K" position="-0.30446 4.08949 12.16056" rotation="-26.122864753399625 -169.92610400651415 30.653814997294173" scale="2 2 2">
+        <a-entity id="text-deskripsi2_HLMN3l" position="16.06503 9.90016 1.8192" rotation="-26.122864753399625 -119.53045522019234 30.653814997294173" scale="2 2 2">
 
             <!-- Dark background plane behind the text -->
             <a-plane
@@ -184,24 +184,11 @@
                 height="0.5"
                 color="#111111"
                 opacity="0.75"
-                id="plane-deskripsi_HLMN3K" scale="1.56628 1 1">
+                id="plane-deskripsi_HLMN3l" scale="1.06388 1 1">
             </a-plane>
 
-            <a-text id="komponen-text1_HLMN2" font="kelsonsans" width="6" align="center"
-                value="Usaha Kesehatan Sekolah (UKS)" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
-                color="#fff">
-            </a-text>
-        </a-entity>
-
-        <a-entity id="tombol-navigasi3_HLMN3k" position="20.18657 -2.59519 13.24683" rotation="-69.22476080770606 -167.4841578836666 24.79761337326203" scale="2 2 2">
-
-            <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
-                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 3Lt2g_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
-            </a-entity>
-
-            <a-text id="text-navigasi1_HLMN4" font="kelsonsans" width="6" align="center"
-                value="Naik ke \n Lantai 2" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
+            <a-text id="komponen-text1_HLMN3l" font="kelsonsans" width="6" align="center"
+                value="Layanan Publik" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
                 color="#fff">
             </a-text>
         </a-entity>
