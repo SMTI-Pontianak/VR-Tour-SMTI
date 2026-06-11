@@ -16,6 +16,7 @@
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
     <script src="js/gif-shader.js"></script>
     <script src="js/button-component.js"></script>
+    <script src="js/video-component.js"></script>
     <script src="js/ui-manager.js"></script>
 
     <!-- Styles -->
@@ -171,6 +172,7 @@
             </a-text>
         </a-entity>
 
+
         <!--- Paste Snippet Code Text Dibawah ini -->
 
         <a-entity id="text-deskripsi2_HLMN3K" position="-0.30446 4.08949 12.16056" rotation="-26.122864753399625 -169.92610400651415 30.653814997294173" scale="2 2 2">
@@ -190,7 +192,19 @@
                 value="Usaha Kesehatan Sekolah (UKS)" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56"
                 color="#fff">
             </a-text>
+        </a-entity>
 
+        <a-entity id="tombol-navigasi3_HLMN3k" position="20.18657 -2.59519 13.24683" rotation="-69.22476080770606 -167.4841578836666 24.79761337326203" scale="2 2 2">
+
+            <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 3Lt2g_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+            </a-entity>
+
+            <a-text id="text-navigasi1_HLMN4" font="kelsonsans" width="6" align="center"
+                value="Naik ke \n Lantai 2" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
+                color="#fff">
+            </a-text>
         </a-entity>
 
     </a-scene>
