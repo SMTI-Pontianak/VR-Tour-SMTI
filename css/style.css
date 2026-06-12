@@ -1083,3 +1083,73 @@ body.landing-page {
         font-size: 12px;
     }
 }
+
+/* Majors Modal Styles */
+.majors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.major-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.major-item.linkable:hover {
+    background: rgba(0, 188, 212, 0.12) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.15);
+}
+
+.major-item.dev-only {
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+.major-item.dev-only:hover {
+    background: rgba(255, 64, 129, 0.08) !important;
+    border-color: var(--secondary-color) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 64, 129, 0.15);
+}
+
+.major-item-icon {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.major-item:hover .major-item-icon {
+    transform: scale(1.1);
+}
+
+.major-item-title {
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+.major-item-desc {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 2px;
+}
+

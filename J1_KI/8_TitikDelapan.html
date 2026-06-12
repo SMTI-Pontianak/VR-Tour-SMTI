@@ -14,12 +14,12 @@
 
     <!-- Scripts -->
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-    <script src="js/gif-shader.js"></script>
-    <script src="js/button-component.js"></script>
-    <script src="js/ui-manager.js"></script>
+    <script src="../js/gif-shader.js"></script>
+    <script src="../js/button-component.js"></script>
+    <script src="../js/ui-manager.js"></script>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -37,8 +37,8 @@
 
 <!--====================================================== Section 1 ====================================================-->
                 <div class="room-info">
-                    <h1>Area Parkir Mobil</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
-                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Area Parkir Khusus Pegawai</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
+                    <h1>Kimia Industri</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
+                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Area Istirahat</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
                 </div>
 <!--_____________________________________________________________________________________________________________________-->
 
@@ -52,14 +52,14 @@
 
 <!--====================================================== Section 2 ====================================================-->
         <div class="nav-controls">
-            <a class="btn-icon" title="Kembali ke Beranda" href="index.html" style="text-decoration: none;">
+            <a class="btn-icon" title="Kembali ke Beranda" href="../index.html" style="text-decoration: none;">
                 <i style="font-style: normal;">🏠</i>
             </a>
             <div class="btn-icon" title="Informasi" onclick="toggleInfo(
                     
                     'Tentang Tour', 
                     
-                    'Pada area ini, Anda dapat melihat area parkir mobil yang digunakan oleh pegawai sekolah.'
+                    'Selamat datang di Virtual Tour. Silakan jelajahi lingkungan virtual dengan mengikuti petunjuk arah.'
                     
                     )">
                 <i style="font-style: normal;">i</i>
@@ -79,7 +79,7 @@
             <div class="minimap-tutor">Ketuk peta untuk memperbesar</div>
             <div class="minimap-content">
                 <!-- Ganti src dengan referensi gambar peta yang sesuai dari folder assets/map -->
-                <img src="./assets/map/003halaman sekolah.png" alt="Minimap" onclick="maximizeMap(event)">
+                <img src="../assets/map/Peta KI.png" alt="Minimap" onclick="maximizeMap(event)">
             </div>
         </div>
 <!--_____________________________________________________________________________________________________________________-->
@@ -91,15 +91,15 @@
 <!--====================================================== Section 3 ====================================================-->
         <!-- Assets -->
         <a-assets>
-            <img id="bg" src="./assets/panoramas/3e_TitikTiga.JPG">
+            <img id="bg" src="../assets/panoramas/TitikDelapan_KI.jpg"> <!-- Ganti ... dengan nama file panorama yang ingin digunakan -->
             <!-- Ganti ... dengan nama file gambar yang ingin digunakan -->
-            <img id="arrow" src="./assets/ui/arrow.gif">
+            <img id="arrow" src="../assets/ui/arrow.gif">
         </a-assets>
 <!--_____________________________________________________________________________________________________________________-->
 
 <!--====================================================== Section 4 ====================================================-->
         <!-- Camera Setup -->
-        <a-entity id="camera-rig_hlmn3e" rotation="0.11229972784564135 86.02159152976128 0.9224620501606254">
+        <a-entity id="camera-rig_ki_8" rotation="-5.417315952961934 1.0805984016167325 0.573530752925954">
 <!--_____________________________________________________________________________________________________________________-->
 
             <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
@@ -121,15 +121,16 @@
 
 <!--====================================================== Section 5 ====================================================-->
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi1_HLMN3e" position="-17.944 -0.97214 10.60104" rotation="-86.09493012753802 -148.57712360214455 -103.74031134418199" scale="2 2 2">
+        <a-entity id="tombol-navigasi1_ki_8" 
+                  position="8.07746 -4.24722 17.72428" rotation="-85.34435541591665 162.20664363271658 51.19950857289036" scale="2.04971 2 2">
 
-            <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+            <a-entity id="panah-navigasi1_ki_8" class="itemButton" gif-shader="src: ../assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 3f_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+                target_url: 1_TitikSatu.html" scale="2 2 2" position="4.55 -0.2 -1.23" rotation="8.777140463609081 -4.832899001928493 160.44278">
             </a-entity>
 
-            <a-text id="text-navigasi1_HLMN3a" font="kelsonsans" width="6" align="center"
-                value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
+            <a-text id="text-navigasi1_ki_8" font="kelsonsans" width="6" align="center"
+                value="Ikuti Panah \n Untuk Kembali" position="4.08 -1.49 -1.48" rotation="26.06728784727193 -13.788802297618393 -25.93378868100645"
                 color="#fff">
             </a-text>
         </a-entity>
@@ -138,23 +139,26 @@
 
 <!--====================================================== Section 6 ====================================================-->
         
-        <!--- Paste Snippet Code Tombol Dibawah ini -->
-
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi2_HLMN3e" position="11.86673 -0.97214 20.4776" rotation="-87.51242771269168 -43.41988763060405 -116.11619971900775" scale="2 2 2">
+        <a-entity id="tombol-navigasi2_ki_8"  
+                position="-18.2044 -5.94326 -31.38488" rotation="-83.99733163956408 116.81062456670634 -85.5775492385349" scale="4.29414 2.83356 3.58759"> 
 
-            <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
+            <a-entity id="panah-navigasi2_ki_8"  class="itemButton" gif-shader="src: ../assets/ui/arrow.gif;  transparent: true" 
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 3b_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
-            </a-entity>
+                target_url: 6_TitikEnam.html" scale="2 2 2"  position="4.99599 0.66618 -1.20409" rotation="20.63736682281712 -16.824332696221493 148.52154669601686"> 
+            </a-entity> 
 
-            <a-text id="text-navigasi1_HLMN4" font="kelsonsans" width="6" align="center"
-                value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
-                color="#fff">
-            </a-text>
-        </a-entity>
+            <a-text id="text-navigasi2_ki_8" font="kelsonsans" width="6" align="center" 
+                value="Ikuti Panah \n Untuk Kembali" position="4.03672 -1.66145 -1.56789" rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+            </a-text> 
+        </a-entity> --- Paste Snippet Code Tombol Dibawah ini -->
+
+         
 
         <!--- Paste Snippet Code Text Dibawah ini -->
+
+
 
 <!--_____________________________________________________________________________________________________________________-->
 

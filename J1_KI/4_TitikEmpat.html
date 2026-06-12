@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Tour°</title>
+    <meta name="description" content="Jelajahi dunia virtual dengan teknologi 360° VR">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="../js/gif-shader.js"></script>
+    <script src="../js/button-component.js"></script>
+    <script src="../js/ui-manager.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <div style="color: white; letter-spacing: 2px; font-weight: 300;">MEMUAT PENGALAMAN VR...</div>
+    </div>
+
+    <!-- UI Overlay -->
+    <div id="ui-overlay">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">S</div>
+
+<!--====================================================== Section 1 ====================================================-->
+                <div class="room-info">
+                    <h1>Teknik Kimia Industri</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
+                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Workshop Terpadu</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
+                </div>
+<!--_____________________________________________________________________________________________________________________-->
+
+            </div>
+        </header>
+
+        <div id="info-panel" class="info-panel">
+            <h3>Selamat Datang</h3>
+            <p>Gunakan kursor di tengah layar untuk berinteraksi dengan objek dan berpindah antar lokasi.</p>
+        </div>
+
+<!--====================================================== Section 2 ====================================================-->
+        <div class="nav-controls">
+            <a class="btn-icon" title="Kembali ke Beranda" href="../index.html" style="text-decoration: none;">
+                <i style="font-style: normal;">🏠</i>
+            </a>
+            <div class="btn-icon" title="Informasi" onclick="toggleInfo(
+                    
+                    'Tentang Tour', 
+                    
+                    'Selamat datang di Virtual Tour. Selamat datang di Virtual Tour Workshop Teknik Kimia Industri. Ruangan Workshop Terpadu terdapat berbagai peralatan mini-plant yang digunakan dalam proses pembelajaran untuk memahami berbagai proses peralatan di industri. Silakan jelajahi lingkungan virtual dengan mengikuti petunjuk arah.'
+                    
+                    )">
+                <i style="font-style: normal;">i</i>
+            </div>
+<!--_____________________________________________________________________________________________________________________-->
+
+            <div class="btn-icon" title="Bantuan"
+                onclick="toggleInfo('Bantuan Navigasi', 'Tahan klik kiri dan gerakkan mouse untuk melihat sekeliling. Arahkan kursor ke panah dan tunggu hingga lingkaran penuh untuk berpindah tempat.')">
+                <i style="font-style: normal;">?</i>
+            </div>
+        </div>
+
+<!--====================================================== Section 7 ====================================================-->
+        <!-- Minimap Layout -->
+        <div class="minimap-container" id="minimap-container">
+            <div class="minimap-close" id="minimap-close" onclick="minimizeMap(event)">×</div>
+            <div class="minimap-tutor">Ketuk peta untuk memperbesar</div>
+            <div class="minimap-content">
+                <!-- Ganti src dengan referensi gambar peta yang sesuai dari folder assets/map -->
+                <img src="../assets/map/Peta KI.png" alt="Minimap" onclick="maximizeMap(event)">
+            </div>
+        </div>
+<!--_____________________________________________________________________________________________________________________-->
+    </div>
+
+    <!-- A-Frame Scene -->
+    <a-scene aframe-watcher loading-screen="enabled: false">
+
+<!--====================================================== Section 3 ====================================================-->
+        <!-- Assets -->
+        <a-assets>
+            <img id="bg" src="../assets/panoramas/TitikEmpat_KI.JPG"> <!-- Ganti ... dengan nama file panorama yang ingin digunakan -->
+            <!-- Ganti ... dengan nama file gambar yang ingin digunakan -->
+            <img id="arrow" src="../assets/ui/arrow.gif">
+        </a-assets>
+<!--_____________________________________________________________________________________________________________________-->
+
+<!--====================================================== Section 4 ====================================================-->
+        <!-- Camera Setup -->
+        <a-entity id="camera-rig_ki_4" position="-0.34709 -0.1879 10.35287" rotation="0.02692901637114869 11.125121508055194 0.4056541189526229">
+<!--_____________________________________________________________________________________________________________________-->
+
+            <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
+                animation__zoom="property: camera.fov; from: 170; to: 80; dur: 3000; easing: easeInOutQuad; delay: 1500">
+
+                <!-- Reticle / Cursor -->
+                <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1"
+                    raycaster="objects: .itemButton, .itemInfo; far: 50"
+                    geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+                    material="color: #FFFFFF; shader: flat; opacity: 1"
+                    animation__fusing="property: geometry.radiusOuter; from: 0.050; to: 0.010; startEvents: fusing; easing: easeInQuad; dur: 1000"
+                    animation__fusing2="property: geometry.radiusInner; from: 0.050; to: 0.005; startEvents: fusing; easing: easeInQuad; dur: 1000">
+                </a-entity>
+            </a-camera>
+        </a-entity>
+
+        <!-- Environment -->
+        <a-sky src="#bg" rotation="0 0 0"></a-sky>
+
+<!--====================================================== Section 5 ====================================================-->
+       <!-- Tombol Navigasi -->
+        <a-entity id="tombol-navigasi1_ki_4"  
+                position="-14.07251 -6.33617 8.12082" rotation="-89.99963750135457 111.87573907724453 0" scale="2.36222 1.62038 1.62038"> 
+
+            <a-entity id="panah-navigasi1_ki_4"  class="itemButton" gif-shader="src: ../assets/ui/arrow.gif;  transparent: true" 
+                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 5_TitikLima.html" scale="2 2 2"  position="4.76 0.81 -1.23" rotation="20.63736682281712 -16.824332696221493 148.52154669601686"> 
+            </a-entity> 
+
+            <a-text id="text-navigasi1_ki_4" font="kelsonsans" width="6" align="center" 
+                value="Ikuti Panah \n Untuk Melanjutkan" position="2.68179 -1.96208 -0.10554" rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+            </a-text> 
+        </a-entity> --- Paste Snippet Code Tombol Dibawah ini -->
+<!--_____________________________________________________________________________________________________________________-->
+
+
+<!--====================================================== Section 6 ====================================================-->
+        
+        <!-- Tombol Navigasi -->
+        <a-entity id="tombol-navigasi2_ki_4"  
+                position="7.87189 -8.92917 24.25271" rotation="-89.99963750135457 -139.08206702123655 0" scale="2.87955 2.48185 2.83549"> 
+
+            <a-entity id="panah-navigasi2_ki_4"  class="itemButton" gif-shader="src: ../assets/ui/arrow.gif;  transparent: true" 
+                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 3_TitikTiga.html" scale="2 2 2"  position="4.76 0.81 -1.23" rotation="20.63736682281712 -16.824332696221493 148.52154669601686"> 
+            </a-entity> 
+
+            <a-text id="text-navigasi2_ki_4" font="kelsonsans" width="6" align="center" 
+                value="Ikuti Panah \n Untuk Kembali" position="2.07275 -3.39771 0.43138" rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+            </a-text> 
+        </a-entity> --- Paste Snippet Code Tombol Dibawah ini -->
+
+         
+
+         <!-- Tombol Navigasi -->
+        <a-entity id="tombol-navigasi3_ki_4"  
+                position="2.95139 -4.55261 -11.03895" rotation="-89.99963750135457 -29.137195713582884 0" scale="2.87955 2.48185 2.83549"> 
+
+            <a-entity id="panah-navigasi3_ki_4"  class="itemButton" gif-shader="src: ../assets/ui/arrow.gif;  transparent: true" 
+                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 9_TitikSembilan.html" scale="2 2 2"  position="4.76 0.81 -1.23" rotation="20.63736682281712 -16.824332696221493 148.52154669601686"> 
+            </a-entity> 
+
+            <a-text id="text-navigasi3_ki_4" font="kelsonsans" width="6" align="center" 
+                value="Ikuti Panah \n Untuk Melanjutkan" position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+            </a-text> 
+        </a-entity> --- Paste Snippet Code Tombol Dibawah ini -->
+
+         
+
+               <a-entity id="text-deskripsi1_ki_4" rotation="-32.024330043247105 -89.47308928762936 30.87956036857572"  
+position="16.7925 4.46354 8.70509" rotation="-90 -270.85 
+16" scale="2 2 2"> 
+ 
+            <!-- Dark background plane behind the text --> 
+            <a-plane 
+                position="4.08 -1.49 -1.49" 
+                rotation="21.21 -20.45 -35.56" 
+                width="2.8" 
+                height="0.5" 
+                color="#111111" 
+                opacity="0.75"> 
+            </a-plane> 
+ 
+            <a-text id="komponen-text_1_ki_4" font="kelsonsans" 
+width="6" align="center" 
+                value="Utilitas Boiler" position="4.08 -1.49 -1.48" 
+rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+            </a-text> 
+ 
+        </a-entity> 
+
+
+
+           <a-entity id="text-deskripsi2_ki_4" rotation="-31.880517636669268 -30.931699527932622 30.731737257431966"  
+position="-3.43614 3.23426 -15.02919" rotation="-90 -270.85 
+16" scale="2 2 2"> 
+ 
+            <!-- Dark background plane behind the text --> 
+            <a-plane 
+                position="4.08 -1.49 -1.49" 
+                rotation="21.21 -20.45 -35.56" 
+                width="2.8" 
+                height="0.5" 
+                color="#111111" 
+                opacity="0.75"> 
+            </a-plane> 
+ 
+            <a-text id="komponen-text_2_ki_4" font="kelsonsans" 
+width="6" align="center" 
+                value="Unit Pengolahan Karet" position="4.08 -1.49 -1.48" 
+rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+            </a-text> 
+ 
+        </a-entity> 
+
+       <a-entity id="text-deskripsi3_ki_4" rotation="-31.718943538442375 16.481130976938132 29.5371202545842"  
+position="-14.30316 3.42876 -0.59925" rotation="-90 -270.85 
+16" scale="2 2 2"> 
+ 
+            <!-- Dark background plane behind the text --> 
+            <a-plane 
+                position="4.08 -1.49 -1.49" 
+                rotation="21.21 -20.45 -35.56" 
+                width="2.8" 
+                height="0.5" 
+                color="#111111" 
+                opacity="0.75"
+                id="plane_3_ki_4" scale="1.19787 1 1"> 
+            </a-plane> 
+ 
+            <a-text id="komponen-text_3_ki_4" font="kelsonsans" 
+width="6" align="center" 
+                value="Unit Pengolahan Air Baku" position="4.08 -1.49 -1.48" 
+rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+            </a-text> 
+ 
+        </a-entity> 
+
+
+           <a-entity id="text-deskripsi4_ki_4" rotation="-31.718943538442375 37.173501748087816 29.5371202545842"  
+position="-25.47153 0.0775 0.9435" rotation="-90 -270.85 
+16" scale="2 2 2"> 
+ 
+            <!-- Dark background plane behind the text --> 
+            <a-plane 
+                position="4.08 -1.49 -1.49" 
+                rotation="21.21 -20.45 -35.56" 
+                width="2.8" 
+                height="0.5" 
+                color="#111111" 
+                opacity="0.75"> 
+            </a-plane> 
+ 
+            <a-text id="komponen-text_4_ki_4" font="kelsonsans" 
+width="6" align="center" 
+                value="Grinder" position="4.08 -1.49 -1.48" 
+rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+            </a-text> 
+ 
+        </a-entity> 
+
+        
+
+        <a-entity id="text-deskripsi5_ki_4" rotation="-30.559276961097584 38.0822128111653 27.779285739122834"  
+position="-6.27629 0.04699 -5.41653" rotation="-90 -270.85 
+16" scale="2 2 2"> 
+ 
+            <!-- Dark background plane behind the text --> 
+            <a-plane 
+                position="4.08 -1.49 -1.49" 
+                rotation="21.21 -20.45 -35.56" 
+                width="2.8" 
+                height="0.5" 
+                color="#111111" 
+                opacity="0.75"> 
+            </a-plane> 
+ 
+            <a-text id="komponen-text_5_ki_4" font="kelsonsans" 
+width="6" align="center" 
+                value="Mesin hot press" position="4.08 -1.49 -1.48" 
+rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+            </a-text> 
+ 
+        </a-entity> 
+
+
+        <a-entity id="text-deskripsi6_ki_4" rotation="-31.718943538442375 -52.623308693790456 29.5371202545842"  
+position="-1.05849 0.69865 -14.25867" rotation="-90 -270.85 
+16" scale="2 2 2"> 
+ 
+            <!-- Dark background plane behind the text --> 
+            <a-plane 
+                position="4.08 -1.49 -1.49" 
+                rotation="21.21 -20.45 -35.56" 
+                width="2.8" 
+                height="0.5" 
+                color="#111111" 
+                opacity="0.75"> 
+            </a-plane> 
+ 
+            <a-text id="komponen-text_6_ki_4" font="kelsonsans" 
+width="6" align="center" 
+                value="Mesin open mill" position="4.08 -1.49 -1.48" 
+rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+            </a-text> 
+ 
+        </a-entity> 
+
+        </a-entity> --- Paste Snippet Code Tombol Dibawah ini -->
+
+
+<!--_____________________________________________________________________________________________________________________-->
+
+    </a-scene>
+</body>
+
+</html>

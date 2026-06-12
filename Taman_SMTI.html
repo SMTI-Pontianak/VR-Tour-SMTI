@@ -37,8 +37,8 @@
 
 <!--====================================================== Section 1 ====================================================-->
                 <div class="room-info">
-                    <h1>Area Parkir Mobil</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
-                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Area Parkir Khusus Pegawai</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
+                    <h1>TAMAN SMTI</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
+                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Area Taman SMTI</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
                 </div>
 <!--_____________________________________________________________________________________________________________________-->
 
@@ -59,7 +59,7 @@
                     
                     'Tentang Tour', 
                     
-                    'Pada area ini, Anda dapat melihat area parkir mobil yang digunakan oleh pegawai sekolah.'
+                    'Anda sedang berada di area taman SMTI, sebuah ruang terbuka yang dirancang untuk bersantai dan berinteraksi. Taman ini dilengkapi dengan berbagai fasilitas seperti tempat duduk, area hijau, dan jalur pejalan kaki yang nyaman.'
                     
                     )">
                 <i style="font-style: normal;">i</i>
@@ -79,7 +79,7 @@
             <div class="minimap-tutor">Ketuk peta untuk memperbesar</div>
             <div class="minimap-content">
                 <!-- Ganti src dengan referensi gambar peta yang sesuai dari folder assets/map -->
-                <img src="./assets/map/003halaman sekolah.png" alt="Minimap" onclick="maximizeMap(event)">
+                <img src="./assets/map/Peta KI.png" alt="Minimap" onclick="maximizeMap(event)">
             </div>
         </div>
 <!--_____________________________________________________________________________________________________________________-->
@@ -91,15 +91,16 @@
 <!--====================================================== Section 3 ====================================================-->
         <!-- Assets -->
         <a-assets>
-            <img id="bg" src="./assets/panoramas/3e_TitikTiga.JPG">
+            <img id="bg" src="./assets/panoramas/TAMAN_SMTI.JPG">
             <!-- Ganti ... dengan nama file gambar yang ingin digunakan -->
             <img id="arrow" src="./assets/ui/arrow.gif">
+            <img id="door_enter" src="./assets/ui/door_enter.png">
         </a-assets>
 <!--_____________________________________________________________________________________________________________________-->
 
 <!--====================================================== Section 4 ====================================================-->
         <!-- Camera Setup -->
-        <a-entity id="camera-rig_hlmn3e" rotation="0.11229972784564135 86.02159152976128 0.9224620501606254">
+        <a-entity id="camera-rig_Taman_SMTI" rotation="0.0011459155902616466 115.74778785673864 0.34606650825901725">
 <!--_____________________________________________________________________________________________________________________-->
 
             <a-camera id="camera" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
@@ -121,11 +122,11 @@
 
 <!--====================================================== Section 5 ====================================================-->
         <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi1_HLMN3e" position="-17.944 -0.97214 10.60104" rotation="-86.09493012753802 -148.57712360214455 -103.74031134418199" scale="2 2 2">
+        <a-entity id="tombol-navigasi1_Taman_SMTI" position="3.08718 -3.73393 -16.0242" rotation="-86.96926372290766 99.55771943972698 -120.58584347882332" scale="2 2 2">
 
             <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
                 geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 3f_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
+                target_url: J1_KI/1_TitikSatu.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
             </a-entity>
 
             <a-text id="text-navigasi1_HLMN3a" font="kelsonsans" width="6" align="center"
@@ -140,23 +141,7 @@
         
         <!--- Paste Snippet Code Tombol Dibawah ini -->
 
-        <!-- Tombol Navigasi -->
-        <a-entity id="tombol-navigasi2_HLMN3e" position="11.86673 -0.97214 20.4776" rotation="-87.51242771269168 -43.41988763060405 -116.11619971900775" scale="2 2 2">
-
-            <a-entity id="panah-navigasi1_HLMN3a" class="itemButton" gif-shader="src: ./assets/ui/arrow.gif; transparent: true"
-                geometry="primitive: plane" hoverable="opacity: 0.7" clickable="name: Titik_1; 
-                target_url: 3b_TitikTiga.html" scale="2 2 2" position="4.02388 -2.6551 -1.22999" rotation="8.521601286980735 -5.272930588588967 157.51755703736592">
-            </a-entity>
-
-            <a-text id="text-navigasi1_HLMN4" font="kelsonsans" width="6" align="center"
-                value="Ikuti Panah \n Untuk Melanjutkan" position="3.52851 -3.7256 -1.52397" rotation="24.97981395211363 -14.109085705096522 -27.307168515935036"
-                color="#fff">
-            </a-text>
-        </a-entity>
-
         <!--- Paste Snippet Code Text Dibawah ini -->
-
-<!--_____________________________________________________________________________________________________________________-->
 
     </a-scene>
 </body>

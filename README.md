@@ -347,10 +347,11 @@ youtube-card="videoId: dQw4w9WgXcQ; title: Profil Jurusan Teknik Pemesinan"
 
 Semua foto, video, dan peta tersimpan di Google Drive. Kalau kamu butuh aset baru, download dari sini dulu!
 
-| Jenis Aset                    | Link Google Drive                                                                            |
-| ----------------------------- | -------------------------------------------------------------------------------------------- |
+| Jenis Aset                    | Link                                                                                          |
+| ----------------------------- | --------------------------------------------------------------------------------------------- |
 | 📸 Foto 360° & Peta Minimap   | [Klik di sini](https://drive.google.com/drive/u/0/folders/1sOTEVIOsEfHekUTdJTuV4IoxTw8O-RQf) |
 | 📹 Video YouTube (link video) | [Klik di sini](https://drive.google.com/drive/u/0/folders/17NuCwMAp9EPYcgSNMlXYbUcBlGdUBMPa) |
+| 🗺️ Layout Titik (Excalidraw)  | [Klik di sini](https://excalidraw.com/#room=6562000f7cc580086753,UtFJg2Vlo8EaShHec5RtDA) |
 
 **Setelah download:**
 
