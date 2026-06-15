@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Tour°</title>
+    <meta name="description" content="Jelajahi dunia virtual dengan teknologi 360° VR">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="../js/gif-shader.js"></script>
+    <script src="../js/button-component.js"></script>
+    <script src="../js/ui-manager.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <div style="color: white; letter-spacing: 2px; font-weight: 300;">MEMUAT PENGALAMAN VR...</div>
+    </div>
+
+    <!-- UI Overlay -->
+    <div id="ui-overlay">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">S</div>
+
+<!--====================================================== Section 1 ====================================================-->
+                <div class="room-info">
+                    <h1>JURUSAN APL</h1> <!-- Ganti ... dengan Nama Lokasi Secara Umum -->
+                    <p style="font-size: 10px; opacity: 0.6; letter-spacing: 1px;">Laboratorium Instrumen</p> <!-- Ganti ... dengan Nama Lokasi Secara Spesifik -->
+                </div>
+<!--_____________________________________________________________________________________________________________________-->
+
+            </div>
+        </header>
+
+        <div id="info-panel" class="info-panel">
+            <h3>Selamat Datang</h3>
+            <p>Gunakan kursor di tengah layar untuk berinteraksi dengan objek dan berpindah antar lokasi.</p>
+        </div>
+
+<!--====================================================== Section 2 ====================================================-->
+        <div class="nav-controls">
+            <a class="btn-icon" title="Kembali ke Beranda" href="../index.html" style="text-decoration: none;">
+                <i style="font-style: normal;">🏠</i>
+            </a>
+            <div class="btn-icon" title="Informasi" onclick="toggleInfo(
+                    
+                    'Tentang Tour', 
+                    
+                    'Selamat datang di Virtual Tour Laboratorium APL SMK SMTI Pontianak. Silakan jelajahi lingkungan virtual dengan mengikuti petunjuk arah.'
+                    
+                    )">
+                <i style="font-style: normal;">i</i>
+            </div>
+<!--_____________________________________________________________________________________________________________________-->
+
+            <div class="btn-icon" title="Bantuan"
+                onclick="toggleInfo('Bantuan Navigasi', 'Tahan klik kiri dan gerakkan mouse untuk melihat sekeliling. Arahkan kursor ke panah dan tunggu hingga lingkaran penuh untuk berpindah tempat.')">
+                <i style="font-style: normal;">?</i>
+            </div>
+        </div>
+
+<!--====================================================== Section 7 ====================================================-->
+        <!-- Minimap Layout -->
+        <div class="minimap-container" id="minimap-container">
+            <div class="minimap-close" id="minimap-close" onclick="minimizeMap(event)">×</div>
+            <div class="minimap-tutor">Ketuk peta untuk memperbesar</div>
+            <div class="minimap-content">
+                <!-- Ganti src dengan referensi gambar peta yang sesuai dari folder assets/map -->
+                <img src="../assets/map/Peta APL.png" alt="Minimap" onclick="maximizeMap(event)">
+            </div>
+        </div>
+<!--_____________________________________________________________________________________________________________________-->
+    </div>
+
+    <!-- A-Frame Scene -->
+    <a-scene aframe-watcher loading-screen="enabled: false">
+
+<!--====================================================== Section 3 ====================================================-->
+        <!-- Assets -->
+        <a-assets>
+            <img id="bg" src="../assets/panoramas/TitikTiga_APL.JPG"> <!-- Ganti ... dengan nama file panorama yang ingin digunakan -->
+            <!-- Ganti ... dengan nama file gambar yang ingin digunakan -->
+            <img id="arrow" src="../assets/ui/arrow.gif">
+        </a-assets>
+<!--_____________________________________________________________________________________________________________________-->
+
+<!--====================================================== Section 4 ====================================================-->
+        <!-- Camera Setup -->
+        <a-entity id="camera-rig-Lab.Inst" position="-0.27916 -0.5431 0" rotation="-2.5720075423422655 -137.00795980286296 1.7813257850617294">
+<!--_____________________________________________________________________________________________________________________-->
+
+            <a-camera id="camera" rotation="-17.876283208081684 2.291831180523293 13.50175044225785" look-controls="pointerLockEnabled: false" wasd-controls="enabled: false" fov="170"
+                animation__zoom="property: camera.fov; from: 170; to: 80; dur: 3000; easing: easeInOutQuad; delay: 1500">
+
+                <!-- Reticle / Cursor -->
+                <a-entity id="cursor" rotation="3.6210932652268033 -17.040337784985812 25.705751478544382" cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1"
+                    raycaster="objects: .itemButton, .itemInfo; far: 50"
+                    geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
+                    material="color: #FFFFFF; shader: flat; opacity: 1"
+                    animation__fusing="property: geometry.radiusOuter; from: 0.050; to: 0.010; startEvents: fusing; easing: easeInQuad; dur: 1000"
+                    animation__fusing2="property: geometry.radiusInner; from: 0.050; to: 0.005; startEvents: fusing; easing: easeInQuad; dur: 1000">
+                </a-entity>
+            </a-camera>
+        </a-entity>
+
+        <!-- Environment -->
+        <a-sky src="#bg" rotation="0 0 0"></a-sky>
+
+<!--====================================================== Section 5 ====================================================-->
+        <!-- Tombol Navigasi -->
+        <a-entity id="tombol-navigasi1-Lab.Inst" 
+                  position="-24.45562 -10.00811 16.7341" rotation="-84.32907420294482 -81.5439263608139 157.29926011742108" scale="6.7307 5.92388 2">
+
+
+            <a-entity id="panah-navigasi1" class="itemButton" gif-shader="src: ../assets/ui/arrow.gif; transparent: true"
+                geometry="primitive: plane" 
+                hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 1_TitikSatu.html" scale="2 2 2" position="4.55 -0.2 -1.23" rotation="-4.000391325603408 4.859828018299643 157.58516605719134">
+            </a-entity>
+
+            <a-text id="text-navigasi1" font="kelsonsans" width="6" align="center"
+                value="Ikuti Panah \n Kembali" position="4.08 -1.49 -1.48" rotation="26.06728784727193 -13.788802297618393 -25.93378868100645"
+                color="#fff">
+            </a-text>
+        </a-entity>
+
+<!--_____________________________________________________________________________________________________________________-->
+
+
+<!--====================================================== Section 6 ====================================================-->
+
+        <!--- Paste Snippet Code Tombol Dibawah ini -->
+
+         <a-entity id="tombol-navigasi2_Lab.Inst"  
+            position="11.68396 -0.977 -6.03679" rotation="-84.60008324004171 83.39228820790593 -152.04924784063735" scale="2 2 2"> 
+            <a-entity id="panah-navigasi2" 
+            class="itemButton" gif-shader="src: ../assets/ui/arrow.gif; 
+            transparent: true" 
+            geometry="primitive: plane" 
+            hoverable="opacity: 0.7" clickable="name: Titik_1; 
+            target_url: 3_Lab.Inst.Dalam.html" scale="2 2 2" 
+            position="4.66702 -0.40255 -1.20857" rotation="6.689855215947492 -4.697680962277619 157.60292774884041"> 
+            </a-entity> 
+            <a-text id="text-navigasi2_Lab.Inst" font="kelsonsans" 
+            width="6" align="center" 
+            value="Ikuti Panah \n Peralatan Instrumen" 
+            position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56" 
+            color="#fff"> 
+            </a-text> 
+            </a-entity>
+
+
+            <a-entity id="tombol-navigasi3_lab.inst" rotation="-89.99963750135457 -109.31576364860003 0"  
+                position="14.82313 -2.5263 2.65907" rotation="-90 -270.85 
+                16" scale="2 2 2"> 
+                <a-entity id="panah-navigasi3_lab.inst" 
+                class="itemButton" gif-shader="src: ../assets/ui/arrow.gif; 
+                transparent: true" 
+                geometry="primitive: plane" 
+                hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 4_R.Preparasi.html" scale="2 2 2" 
+                position="4.76 0.81 -1.23" rotation="20.1 -8.17 -199.75"> 
+                </a-entity> 
+                <a-text id="text-navigasi2" font="kelsonsans" 
+                width="6" align="center" 
+                value="Ikuti Panah \n Ruang Preparasi" 
+                position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+                </a-text> 
+                </a-entity> 
+
+                <a-entity id="tombol-navigasi4-Lab.Isnt" rotation="-89.99963750135457 -136.31181608177903 0"  
+                position="10.54786 -0.4315 5.14035" rotation="-90 -270.85 
+                16" scale="2 2 2"> 
+                <a-entity id="panah-navigasi2" 
+                class="itemButton" gif-shader="src: ../assets/ui/arrow.gif; 
+                transparent: true" 
+                geometry="primitive: plane" 
+                hoverable="opacity: 0.7" clickable="name: Titik_1; 
+                target_url: 6_R.Bahan.html" scale="2 2 2" 
+                position="4.76 0.81 -1.23" rotation="20.1 -8.17 -199.75"> 
+                </a-entity> 
+                <a-text id="text-navigasi2" font="kelsonsans" 
+                width="6" align="center" 
+                value="Ikuti Panah \n ke Ruang Bahan" 
+                position="4.08 -1.49 -1.48" rotation="21.21 -20.45 -35.56" 
+                color="#fff"> 
+                </a-text> 
+                </a-entity> 
+
+
+        <!--- Paste Snippet Code Text Dibawah ini -->
+
+
+
+<!--_____________________________________________________________________________________________________________________-->
+
+    </a-scene>
+</body>
+
+</html>
