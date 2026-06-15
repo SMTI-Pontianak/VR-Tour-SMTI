@@ -2,6 +2,9 @@
 
 Preview Aplikasi Web VR Tour
 
+Akses Tour Secara Langsung Disini : 
+https://smti-pontianak.github.io/VR-Tour-SMTI/
+
 # 🌐 Panduan Kontribusi VR Tour — SMK SMTI Pontianak
 
 > **Hai!! Selamat datang di panduan kontribusi VR Tour ini!! 👋**
